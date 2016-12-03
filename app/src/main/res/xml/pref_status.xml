@@ -1,0 +1,26 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- These settings headers are only used on tablets. -->
+    <Preference
+        android:key="server_name"
+        android:title="@string/server_name" />
+    <Preference
+        android:key="server_version"
+        android:title="@string/server_version" />
+    <Preference
+        android:key="server_review"
+        android:title="@string/server_review" />
+    <Preference
+        android:key="server_mode"
+        android:title="@string/server_mode" />
+    <Preference
+        android:key="server_start"
+        android:title="@string/server_start" />
+    <Preference
+        android:key="server_uptime"
+        android:title="@string/server_uptime" />
+    <Preference
+        android:key="user_email"
+        android:title="@string/user_email" />
+
+</PreferenceScreen>

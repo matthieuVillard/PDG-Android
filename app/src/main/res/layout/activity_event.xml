@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_event"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="eventail.eventail.activity.EventActivity"
+    android:layout_centerHorizontal="true"
+    android:columnCount="3"
+    android:alignmentMode="alignBounds"
+    android:rowOrderPreserved="true"
+    android:useDefaultMargins="true">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_columnSpan="3"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/hint_event_name"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textSize="30dp"
+        android:theme="@style/AppTheme.Form"
+        android:gravity="fill_horizontal|center"
+        android:layout_columnWeight="1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_action_clock"
+        android:tint="@color/colorAccent"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/start_date"
+        android:hint="@string/hint_event_start_date"
+        android:textColor="@color/black"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_marginBottom="20dp"
+        android:layout_columnWeight="1"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/start_time"
+        android:hint="@string/hint_event_start_time"
+        android:textColor="@color/black"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_columnWeight="0"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_event"
+        android:tint="@color/colorAccent"
+        android:layout_marginRight="5dp"
+        android:minWidth="36dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/end_date"
+        android:hint="@string/hint_event_end_date"
+        android:textColor="@color/black"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_marginBottom="20dp"
+        android:layout_columnWeight="1"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/end_time"
+        android:hint="@string/hint_event_end_time"
+        android:textColor="@color/black"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_columnWeight="1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_description"
+        android:tint="@color/colorAccent"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/description"
+        android:hint="@string/hint_event_location"
+        android:textColor="@color/black"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_marginBottom="20dp"
+        android:layout_columnSpan="2"
+        android:maxLines="1"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_action_location"
+        android:tint="@color/colorAccent"
+        android:layout_marginRight="5dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:id="@+id/location"
+        android:hint="@string/hint_event_location"
+        android:textColor="@color/black"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_marginBottom="20dp"
+        android:layout_columnSpan="2"/>
+
+    <TextView
+        android:text="@string/hint_event_radius"
+        android:id="@+id/radiusTxt"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="18dp"
+        android:layout_gravity="left|bottom"
+        android:layout_columnSpan="3"/>
+
+    <SeekBar
+        android:theme="@style/AppTheme.Form"
+        android:layout_height="wrap_content"
+        android:max="500"
+        android:progress="5"
+        android:id="@+id/radius"
+        android:layout_below="@+id/radiusTxt"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_columnSpan="3"
+        android:layout_gravity="fill_horizontal|center"/>
+
+    <TextView
+        android:text="0"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radius"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="left|top"
+        android:layout_row="8"
+        android:layout_column="1" />
+
+    <TextView
+        android:text="500"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radius"
+        android:layout_gravity="right|top"
+        android:layout_column="2"
+        android:layout_marginBottom="20dp"/>
+
+</GridLayout>

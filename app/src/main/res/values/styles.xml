@@ -1,0 +1,74 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionButtonStyle">@style/AppTheme.Widget.ActionButton</item>
+    </style>
+    <style name="AppTheme.Animated" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowAnimationStyle">@style/AppTheme.CustomAnimation</item>
+        <item name="android:activityCloseExitAnimation">@anim/slid_out</item>
+    </style>
+    <style name="AppTheme.CustomAnimation" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:activityOpenEnterAnimation">@anim/slid_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slid_stay</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slid_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slid_out</item>
+    </style>
+    <style name="AppTheme.Form" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="buttonStyle">@style/AppTheme.Button</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+    <style name="AppTheme.DarkForm" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="buttonStyle">@style/AppDarkTheme.Button</item>
+        <item name="android:textColorSecondary">@color/textColorSecondaryDark</item>
+        <item name="android:textColorHint">@color/inputHintDark</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="colorControlHighlight">@color/textColorSecondaryDark</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+    <style name="AppDarkTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/white</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="backgroundTint">@color/white</item>
+    </style>
+    <style name="AppTheme.Widget.ActionButton" parent="@style/Widget.AppCompat.ActionButton">
+        <item name="textAllCaps">false</item>
+    </style>
+    <style name="settings" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="ActionBar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+</resources>

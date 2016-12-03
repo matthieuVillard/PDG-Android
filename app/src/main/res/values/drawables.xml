@@ -1,0 +1,14 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_home" type="drawable">@drawable/ic_action_location_2</item>
+    <item name="ic_menu_recent" type="drawable">@drawable/ic_action_clock</item>
+    <item name="ic_menu_notification" type="drawable">@drawable/ic_notifications</item>
+
+    <item name="ic_menu_events" type="drawable">@drawable/ic_event</item>
+    <item name="ic_menu_users" type="drawable">@drawable/ic_people</item>
+
+    <item name="ic_menu_invitefriends" type="drawable">@drawable/ic_person_add</item>
+    <item name="ic_menu_rate" type="drawable">@drawable/ic_stars</item>
+
+    <item name="ic_menu_share" type="drawable">@android:drawable/ic_menu_share</item>
+    <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
+</resources>

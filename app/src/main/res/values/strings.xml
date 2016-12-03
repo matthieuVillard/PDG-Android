@@ -1,0 +1,176 @@
+<resources>
+    <!-- App Parameters -->
+    <string name="app_name">Eventail</string>
+    <string name="app_version">1.0.0</string>
+    <string name="version_title">Version</string>
+
+    <!-- File Paths -->
+    <string name="privacy_policy_path">file:///android_res/raw/privacypolicy.html</string>
+    <string name="terms_path">file:///android_res/raw/terms.html</string>
+
+    <!-- Activities Titles -->
+    <string name="title_activity_login">Log In</string>
+    <string name="title_activity_register">Create an account</string>
+    <string name="title_activity_users_list">Users</string>
+    <string name="title_activity_main">Home</string>
+    <string name="title_activity_add_event">New event</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_user">Account</string>
+    <string name="title_activity_web_browser">Web Browser</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_status">System status</string>
+    <string name="title_activity_team">Team</string>
+    <string name="title_activity_about_eventail">About Eventail</string>
+
+    <!-- General Strings -->
+    <string name="leave_dialog_title">Are you sure?</string>
+
+    <!-- Login Activity -->
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="btn_link_to_forget_password">Forgot Password?</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="lbl_ask_to_register">Not a member?</string>
+    <string name="btn_link_to_register">Sign up now</string>
+    <string name="lbl_ask_to_login">Already registred?</string>
+    <string name="btn_link_to_login">Sign in</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">Logout</string>
+    <string name="name">Fullname</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+
+    <!-- Main Activity -->
+    <!-- Navigation -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_recent">Recent</string>
+    <string name="nav_notifications">Notifications</string>
+    <string name="nav_myevents">My events</string>
+    <string name="nav_users">Friends</string>
+    <string name="nav_opinion">Your opinion</string>
+    <string name="nav_share">Share</string>
+
+    <!-- Toolbar -->
+    <string name="action_account">My account</string>
+    <string name="action_privacy">Privacy Policy</string>
+    <string name="action_about">About us</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_settings">Settings</string>
+    <string name="refresh_button">Refresh</string>
+    <string name="create_button">Create</string>
+
+    <!-- Event Activity -->
+    <string name="hint_event_name">Event name</string>
+    <string name="hint_event_start_date">Start Date</string>
+    <string name="hint_event_start_time">Start Time</string>
+    <string name="hint_event_end_date">End Date</string>
+    <string name="hint_event_end_time">End Time</string>
+    <string name="hint_event_location">Location</string>
+    <string name="hint_event_radius">Radius</string>
+    <string name="leave_event_msg">Your event will be lost.</string>
+    <string name="btn_leave_event">Leave Event</string>
+    <string name="btn_keep_editing_event">Keep Editing</string>
+
+    <!-- Settings -->
+    <!-- Preferences Headers -->
+    <string name="pref_header_account">Account</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <string name="pref_header_about">About</string>
+
+
+    <!-- General Settings -->
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Notifications Settings -->
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+
+    <!-- Data & Sync Settings -->
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- About Settings -->
+    <!-- About Preferences Headers -->
+    <string name="pref_header_help">Help</string>
+    <string name="pref_header_status">System status</string>
+    <string name="pref_header_opinion">Your opinion</string>
+    <string name="pref_header_invite">Invite friend</string>
+    <string name="pref_header_terms">Conditions &amp; terms</string>
+    <string name="pref_header_privacy_policy">Privacy Policy</string>
+    <string name="pref_header_team">Team</string>
+    <string name="pref_header_about_eventail">About Eventail</string>
+
+    <!-- Status Settings -->
+    <string name="server_name">API Server name</string>
+    <string name="server_version">API server version</string>
+    <string name="server_review">API server review</string>
+    <string name="server_mode">API server mode</string>
+    <string name="server_start">Server launch time</string>
+    <string name="server_uptime">Elapsed temp since server launch</string>
+    <string name="user_email">User email</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

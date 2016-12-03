@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#888888</color>
+    <color name="textColorSecondary">#dbdbdb</color>
+    <color name="textColorSecondaryDark">#677cae</color>
+
+    <color name="textColorPrimary">#222222</color>
+    <color name="inputHintDark">#a9b7d7</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <color name="lbl_name">#333333</color>
+    <color name="btn_logut_bg">#ff6861</color>
+</resources>
