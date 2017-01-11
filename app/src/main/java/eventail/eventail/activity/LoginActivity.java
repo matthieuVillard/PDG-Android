@@ -1,6 +1,7 @@
 package eventail.eventail.activity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
@@ -87,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String email = PreferenceManager.getDefaultSharedPreferences(this)
                                         .getString("user_email", "");
-        if(email != null && !email.isEmpty()){
+        if(!email.isEmpty()){
             emailField.setText(email);
             passwordField.requestFocus();
         }
@@ -106,9 +107,10 @@ public class LoginActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();  // Always call the superclass method first
 
-        if(Eventail.getToken() != null){
+        if(!Eventail.getInstance().getToken().isEmpty()){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 

@@ -1,6 +1,8 @@
 package eventail.eventail.service.webService.task;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +49,10 @@ public class TokenTask extends WebTask<String> {
 
     @Override
     public void handleSuccess(JSONObject response) {
-        Eventail.login(response.optString("token"));
+        Eventail.getInstance().login(response.optString("token"));
+        SharedPreferences sharedPref = context.getSharedPreferences("credentials", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("token", response.optString("token"));
+        editor.commit();
     }
 }

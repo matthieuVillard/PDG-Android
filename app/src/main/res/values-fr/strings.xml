@@ -28,8 +28,11 @@
     <!-- Login Activity -->
     <string name="hint_email">Votre adresse Email</string>
     <string name="hint_password">Mot de passe</string>
-    <string name="hint_name">Nom complet</string>
+    <string name="hint_username">Nom d\'utilisateur</string>
+    <string name="hint_firstname">Nom</string>
+    <string name="hint_lastname">Prénom</string>
     <string name="btn_login">Connecter</string>
+    <string name="btn_save">Enregistrer</string>
     <string name="btn_link_to_forget_password">Mot de passe oublié?</string>
     <string name="btn_register">Créer un compte</string>
     <string name="lbl_ask_to_register">Pas encore de compte?</string>
@@ -52,7 +55,9 @@
     <string name="nav_recent">Récents</string>
     <string name="nav_notifications">Notifications</string>
     <string name="nav_myevents">Mes événements</string>
-    <string name="nav_users">Amis</string>
+    <string name="nav_users">Inviter des amis</string>
+    <string name="nav_requests">Demandes d\'amis</string>
+    <string name="nav_friends">Amis</string>
     <string name="nav_opinion">Votre avis</string>
     <string name="nav_share">Partager</string>
 
@@ -64,9 +69,12 @@
     <string name="action_settings">Paramètres</string>
     <string name="refresh_button">Actualiser</string>
     <string name="create_button">Créer</string>
+    <string name="modify_button">Modifier</string>
+    <string name="delete_button">Supprimer</string>
 
     <!-- Event Activity -->
     <string name="hint_event_name">Nom de l\'événement</string>
+    <string name="hint_event_spontaneous">Evénement spontané</string>
     <string name="hint_event_start_date">Date de début</string>
     <string name="hint_event_start_time">Heure de début</string>
     <string name="hint_event_end_date">Date de fin</string>
@@ -76,6 +84,30 @@
     <string name="leave_event_msg">Votre événement sera perdu.</string>
     <string name="btn_leave_event">Quitter</string>
     <string name="btn_keep_editing_event">Annuler</string>
+
+    <string name="label_event_day">jour</string>
+    <string name="label_event_hour">heure</string>
+    <string name="label_event_minute">minute</string>
+    <string name="btn_cancel_event">Annuler l\'événement</string>
+
+    <!-- Users Activity -->
+    <string name="hint_user_username">Nom d\'utilisateur ou email</string>
+    <string name="btn_user_search">Chercher</string>
+    <string name="btn_user_invite">Inviter</string>
+    <string name="msg_no_data">Aucun résultat trouvé</string>
+    <string name="msg_invitation_sendt">L\'invitation a été envoyée</string>
+    <string name="msg_invitation_confirm">L\'invitation sera envoyée</string>
+    <string name="btn_confirm">Confirmer</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="msg_friend_delete_confirm">L\'amitié sera résiliée</string>
+    <string name="msg_friend_deleted">L\'amitié a été résiliée</string>
+
+    <!-- Requests Activity -->
+    <string name="msg_request_delete_confirm">La demande sera refusée</string>
+    <string name="msg_request_deleted">La requête a été refusée</string>
+    <string name="btn_accept">Accepter</string>
+    <string name="msg_request_accepted">La demande a été accptée</string>
+    <string name="msg_request_denied">La demande a été refusée</string>
 
     <!-- Settings -->
     <!-- Preferences Headers -->

@@ -1,3 +1,4 @@
+
 package eventail.eventail.fragment;
 
 import android.content.DialogInterface;
@@ -21,12 +22,13 @@ public class TimePickerDialog extends DialogFragment implements TimePicker.OnTim
 
 
 
-    public interface TimePickerDialogListener {
-        void onTimeChange(Calendar time);
+    public interface OnTimeChangedListener {
+        void onTimeChanged(Calendar time);
     }
 
     private TimePicker timePicker;
     private Calendar time;
+    private OnTimeChangedListener listener;
 
     public TimePickerDialog() {
         // Required empty public constructor
@@ -39,20 +41,23 @@ public class TimePickerDialog extends DialogFragment implements TimePicker.OnTim
      * @param date Parameter 1.
      * @return A new instance of fragment DatePickerDialog.
      */
-    public static TimePickerDialog newInstance(Date date) {
+    public static TimePickerDialog newInstance(Calendar date) {
         TimePickerDialog fragment = new TimePickerDialog();
         Bundle args = new Bundle();
-        args.putLong(ARG_PARAM1, date.getTime());
+        args.putSerializable(ARG_PARAM1, date);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void setOnTimeChangedListener(OnTimeChangedListener listener){
+        this.listener = listener;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        time = Calendar.getInstance();
         if (getArguments() != null) {
-            time.setTimeInMillis(getArguments().getLong(ARG_PARAM1));
+            time = (Calendar)getArguments().getSerializable(ARG_PARAM1);
         }
     }
 
@@ -76,8 +81,13 @@ public class TimePickerDialog extends DialogFragment implements TimePicker.OnTim
     public void onDismiss(DialogInterface dialogInterface) {
         //TODO: handle context change
         super.onDismiss(dialogInterface);
-        TimePickerDialogListener listener = (TimePickerDialogListener) getActivity();
-        listener.onTimeChange(time);
+        if(listener != null){
+            listener.onTimeChanged(time);
+        }
+        else{
+            OnTimeChangedListener listener = (OnTimeChangedListener) getActivity();
+            listener.onTimeChanged(time);
+        }
     }
 
     @Override

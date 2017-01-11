@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     public void onResume() {
         super.onResume();
 
-        if(Eventail.getToken() == null){
+        if(Eventail.getInstance().getToken().isEmpty()){
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity
             return true;
         }
         if(id == R.id.action_logout) {
-            Eventail.logout();
+            Eventail.getInstance().logout();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();

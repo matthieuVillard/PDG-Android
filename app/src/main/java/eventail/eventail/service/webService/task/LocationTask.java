@@ -43,7 +43,7 @@ public class LocationTask extends WebTask {
         String url = WebConfig.serverUrl + "/graphql";
         String request = "{users{username location}}";
         Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Token " + Eventail.getToken());
+        headers.put("Authorization", "Token " + Eventail.getInstance().getToken());
         headers.put("Content-Type", "text/plain");
         return HttpsClient.post(url, headers, request)
                           .response();

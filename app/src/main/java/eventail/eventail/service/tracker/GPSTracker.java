@@ -172,10 +172,12 @@ public class GPSTracker extends Service implements LocationListener {
             this.location = location;
             longitude = location.getLongitude();
             latitude = location.getLatitude();
-            if(previous == null){
+            if(previous == null && location != null){
                 listener.onInitialized(location);
             }
-            listener.onLocationChanged(location);
+            if(location != null) {
+                listener.onLocationChanged(location);
+            }
         }
     }
 

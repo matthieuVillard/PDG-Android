@@ -34,7 +34,7 @@ public class UserTask extends WebTask {
     protected HttpResponse request(Object... params) throws JSONException, IOException {
         String url = WebConfig.serverUrl + "/users/3";
         Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Token " + Eventail.getToken());
+        headers.put("Authorization", "Token " + Eventail.getInstance().getToken());
         return HttpsClient.get(url, headers).response();
     }
 

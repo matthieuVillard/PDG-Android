@@ -1,25 +1,34 @@
 package eventail.eventail.service.webService.task;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Calendar;
 
-import eventail.eventail.service.http.HttpResponse;
+import eventail.eventail.activity.auth.LoginActivity;
+import eventail.eventail.models.Credential;
+import eventail.eventail.service.http.response.HttpBody;
+import eventail.eventail.service.http.response.HttpResponse;
 import eventail.eventail.service.webService.handler.WebTaskHandler;
+import eventail.eventail.service.webService.task.auth.ExtendTask;
 
 /**
  * Created by matthieu.villard on 18.10.2016.
  */
-public abstract class WebTask<T> extends AsyncTask<T, Void, HttpResponse> {
+public abstract class WebTask<T, R> extends AsyncTask<T, Void, HttpResponse> {
 
+    public static final String TAG = WebTask.class.getSimpleName();
     protected Context context;
-    private boolean isRunning = false;
     private Exception exception = null;
     private WebTaskHandler handler;
     private ProgressDialog progress;
@@ -46,11 +55,6 @@ public abstract class WebTask<T> extends AsyncTask<T, Void, HttpResponse> {
         progress.setMessage(progressMessage);
     }
 
-
-    public boolean isRunning(){
-        return isRunning;
-    }
-
     protected abstract HttpResponse request(T... params) throws JSONException, IOException;
     protected abstract boolean isResponseValid(HttpResponse response);
 
@@ -59,6 +63,22 @@ public abstract class WebTask<T> extends AsyncTask<T, Void, HttpResponse> {
         exception = null;
         if(progress != null){
             progress.show();
+        }
+        Credential credential = Credential.getInstance(context);
+        if(credential != null){
+            if(!credential.getExpires().after(Calendar.getInstance())){
+                Intent intent = new Intent(context, LoginActivity.class);
+                context.startActivity(intent);
+                ((Activity)context).finish();
+            }
+            else {
+                Calendar comp = Calendar.getInstance();
+                comp.setTime(credential.getExpires().getTime());
+                comp.add(Calendar.HOUR, -12);
+                if (!Calendar.getInstance().before(comp)) {
+                    new ExtendTask(context).execute();
+                }
+            }
         }
     }
 
@@ -78,21 +98,18 @@ public abstract class WebTask<T> extends AsyncTask<T, Void, HttpResponse> {
 
     @Override
     protected void onPostExecute(final HttpResponse response) {
-        isRunning = false;
         if(response != null){
             try {
                 hideProgress();
                 if (isResponseValid(response)) {
-                    handleSuccess(response.asJson());
                     if(handler != null) {
-                        handler.handleSuccess(response.asJson());
+                        handler.handleSuccess(handleSuccess(response.getBody()));
                     }
                 }
                 else {
-                    handleError(response.asJson());
+                    handleError(response);
                 }
-            } catch (JSONException e){
-                e.printStackTrace();
+            } catch (Exception e){
                 handleException(e);
             }
         }
@@ -103,7 +120,6 @@ public abstract class WebTask<T> extends AsyncTask<T, Void, HttpResponse> {
 
     @Override
     protected void onCancelled() {
-        isRunning = false;
         handleCancel();
     }
 
@@ -115,17 +131,21 @@ public abstract class WebTask<T> extends AsyncTask<T, Void, HttpResponse> {
 
     public void handleException(Exception exception){
         hideProgress();
-        Toast.makeText(context, "Unexpected error : " + exception.getMessage(), Toast.LENGTH_LONG).show();
+        Log.e(TAG, "API Request error", exception);
+        Toast.makeText(context, "API Request error : " + exception.getMessage(), Toast.LENGTH_LONG).show();
     }
 
-    public abstract void handleSuccess(JSONObject response);
+    public abstract R handleSuccess(HttpBody response) throws JSONException, ParseException;
 
-    public void handleError(JSONObject response){
-        if(response.has("message")) {
-            Toast.makeText(context, response.optString("message"), Toast.LENGTH_LONG).show();
-        }
-        else{
-            Toast.makeText(context, "Unexpected API Result", Toast.LENGTH_LONG).show();
+    public void handleError(HttpResponse response) throws JSONException {
+        System.out.println("error " + response.getCode() + " " + response.getMessage());
+        if (response.getBody() != null && response.getBody().asJson().has("message")) {
+            JSONObject json = response.getBody().asJson();
+            Log.i(TAG, json.getString("message"));
+            Toast.makeText(context, json.getString("message"), Toast.LENGTH_LONG).show();
+        } else {
+            Log.e(TAG, response.getMessage());
+            Toast.makeText(context, response.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 

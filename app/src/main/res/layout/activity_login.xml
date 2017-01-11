@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context="eventail.eventail.activity.LoginActivity">
+    tools:context="eventail.eventail.activity.auth.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -58,17 +58,6 @@
                 android:orientation="horizontal"
                 android:layout_gravity="right"
                 android:gravity="right">
-
-                <Button
-                    android:id="@+id/forget"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:text="@string/btn_link_to_forget_password"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="15dp"
-                    android:layout_marginRight="10dp"/>
 
                 <Button
                     android:id="@+id/login"

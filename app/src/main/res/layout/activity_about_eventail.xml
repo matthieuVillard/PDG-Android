@@ -10,7 +10,7 @@
     android:paddingRight="50dp"
     android:paddingTop="50dp"
     android:gravity="center"
-    tools:context="eventail.eventail.activity.AboutEventailActivity">
+    tools:context="eventail.eventail.activity.settings.AboutEventailActivity">
 
     <TextView
         android:text="@string/app_name"

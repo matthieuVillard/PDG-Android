@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();  // Always call the superclass method first
 
-        if(Eventail.getToken() != null){
+        if(!Eventail.getInstance().getToken().isEmpty()){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

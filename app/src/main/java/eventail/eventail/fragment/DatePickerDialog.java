@@ -25,12 +25,13 @@ public class DatePickerDialog extends DialogFragment implements DatePicker.OnDat
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "date";
 
-    public interface DatePickerDialogListener {
-        void onDateChange(Date date);
+    public interface OnDateChangedListener {
+        void onDateChanged(Calendar date);
     }
 
     private DatePicker datePicker;
     private Calendar calendar;
+    private OnDateChangedListener listener;
 
     public DatePickerDialog() {
         // Required empty public constructor
@@ -43,20 +44,23 @@ public class DatePickerDialog extends DialogFragment implements DatePicker.OnDat
      * @param date Parameter 1.
      * @return A new instance of fragment DatePickerDialog.
      */
-    public static DatePickerDialog newInstance(Date date) {
+    public static DatePickerDialog newInstance(Calendar date) {
         DatePickerDialog fragment = new DatePickerDialog();
         Bundle args = new Bundle();
-        args.putLong(ARG_PARAM1, date.getTime());
+        args.putSerializable(ARG_PARAM1, date);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public void setOnDateChangeListener(OnDateChangedListener listener){
+        this.listener = listener;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        calendar = Calendar.getInstance();
         if (getArguments() != null) {
-            calendar.setTimeInMillis(getArguments().getLong(ARG_PARAM1));
+            calendar = (Calendar) getArguments().getSerializable(ARG_PARAM1);
         }
     }
 
@@ -78,8 +82,13 @@ public class DatePickerDialog extends DialogFragment implements DatePicker.OnDat
     public void onDismiss(DialogInterface dialogInterface) {
         //TODO: handle context change
         super.onDismiss(dialogInterface);
-        DatePickerDialogListener listener = (DatePickerDialogListener) getActivity();
-        listener.onDateChange(calendar.getTime());
+        if(listener != null){
+            listener.onDateChanged(calendar);
+        }
+        else {
+            OnDateChangedListener listener = (OnDateChangedListener) getActivity();
+            listener.onDateChanged(calendar);
+        }
     }
 
     @Override

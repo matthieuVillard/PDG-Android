@@ -2,29 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_account"
-        android:orderInCategory="100"
-        android:title="@string/action_account"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_privacy"
-        android:orderInCategory="100"
-        android:title="@string/action_privacy"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_help"
-        android:orderInCategory="100"
-        android:title="@string/action_about"
-        app:showAsAction="never" />
-    <item
-        android:id="@+id/action_liste"
-        android:orderInCategory="100"
-        android:title="Liste"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_logout"

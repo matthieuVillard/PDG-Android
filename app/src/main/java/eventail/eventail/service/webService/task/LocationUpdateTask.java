@@ -42,7 +42,7 @@ public class LocationUpdateTask extends WebTask<Double> {
     protected HttpResponse request(Double... params) throws JSONException, IOException {
         String url = WebConfig.serverUrl + "/users/self/location";
         Map<String, String> headers = new HashMap<>();
-        headers.put("Authorization", "Token " + Eventail.getToken());
+        headers.put("Authorization", "Token " + Eventail.getInstance().getToken());
         return HttpsClient.put(url, headers)
                           .field("lat", params[0])
                           .field("lon", params[1])
